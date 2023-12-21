@@ -6,7 +6,7 @@ const VideoPlayer = dynamic(() => import('@/components/VideoPlayer'), { ssr: fal
 
 
 async function getData(mediaid: string) {
-    const res = await fetch(`https://general-service.chunhuizk.com/public/vod/play-url/${mediaid}`)
+    const res = await fetch(`https://general-service.chunhuizk.com/public/vod/play-url/${mediaid}`, { next: { revalidate: 1800 } })
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
 
